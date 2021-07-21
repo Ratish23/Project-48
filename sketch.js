@@ -1,0 +1,231 @@
+function preload(){
+  WhiteSAk=loadImage("WhiteAkmStand.png");
+  WhiteAk=loadImage("WhiteAkm.png");
+
+  BlackSAk=loadImage("BlackAkmStand.png");
+  BlackAk=loadImage("BlackAkm.png");
+
+  WhiteSDp=loadImage("WhiteDpStand.png");
+  WhiteDp=loadImage("WhiteDp28.png");
+
+  BlackSDp=loadImage("BlackDpStand.png");
+  BlackDp=loadImage("BlackDp28.png");
+
+  Geo=loadImage("Georgopol.png");
+  StartButton=loadImage("StartButton.png");
+
+  RulesImg=loadImage("Rules.png");
+
+  PlainBlue=loadImage("PlainBlue.jpg");
+
+  WhiteImg= loadImage("whiteDress.jpg")
+  BlackImg= loadImage("blackdress.jpg")
+
+  gunimg= loadImage("gun1.jpg")
+  gunimg2= loadImage("gun2.jpg")
+
+  blckgun1 = loadImage("blackgun1.png")
+  whtegun1 = loadImage("whitegun.png")
+  blckgun2 = loadImage("blackgun2.png")
+  whtegun2 = loadImage("whitegun2.png")
+  
+
+}
+
+function setup() {
+  createCanvas(1600,700);
+  Sb=createSprite(1500,600);
+  Sb.addImage(StartButton);
+  Sb.scale=0.5
+
+  Rule=createSprite(500,300);
+  Rule.addImage(RulesImg);
+  Rule.scale=0.8
+
+  Geor=createSprite(650,500)
+      Geor.addImage(Geo);
+      Geor.scale=1
+  Geor.visible=false;
+
+  BlueImg=createSprite(650,500);
+  BlueImg.addImage(PlainBlue);
+  BlueImg.scale=1
+  BlueImg.visible=false;
+
+  white = createSprite(375,200)
+  white.addImage(WhiteSAk)
+  white.scale=1.0
+  white.visible= false
+
+
+  Black = createSprite(475,200)
+  Black.addImage(BlackSAk)
+  Black.scale=2.0
+  Black.visible= false
+
+  Blackwithdp = createSprite(475,400)
+  Blackwithdp.addImage(BlackSDp)
+  Blackwithdp.scale=1
+  Blackwithdp.visible = false
+
+  Blackcdp= createSprite(475,400)
+  Blackcdp.addImage(BlackDp)
+  Blackcdp.scale=1
+  Blackcdp.visible=false
+
+  Whitewithdp = createSprite(415,430)
+  Whitewithdp.addImage(WhiteSDp)
+  Whitewithdp.scale=1
+  Whitewithdp.visible = false
+
+  Whitecdp = createSprite(415,430)
+  Whitecdp.addImage(WhiteDp)
+  Whitecdp.scale = 1
+  Whitecdp.visible = false
+
+  
+
+  BlackD= createSprite(675,200)
+  BlackD.addImage(BlackImg)
+  BlackD.visible= false
+
+  WhiteD= createSprite(375,200)
+  WhiteD.addImage(WhiteImg)
+  WhiteD.visible=false
+
+  gun1= createSprite(675,200)
+  gun1.addImage(gunimg)
+  gun1.visible= false
+
+  gun2=createSprite(375,200)
+  gun2.addImage(gunimg2)
+  gun2.visible= false
+
+  blackgun1= createSprite(375,200)
+  blackgun1.addImage(blckgun1)
+  blackgun1.visible=false
+
+  whitegun1= createSprite(1000,200)
+  whitegun1.addImage(whtegun1)
+  whitegun1.visible= false
+
+  blackgun2 = createSprite(375,500)
+  blackgun2.addImage(blckgun2)
+  blackgun2.visible = false
+
+  whitegun2 = createSprite(1000,500)
+  whitegun2.addImage(whtegun2)
+  whitegun2.visible = false
+  
+  }
+
+
+
+function draw() {
+  background("yellow");  
+  if(mousePressedOver(Sb)){
+    BlueImg.visible=true;
+    //white.visible= true 
+    //Black.visible= true
+    //WhiteD.visible= true
+    //BlackD.visible= true 
+    blackgun1.visible= true
+    whitegun1.visible= true
+    blackgun2.visible = true
+    whitegun2.visible = true
+
+  }
+
+   
+    
+// when we press Balck dress black should be selected
+    if(mousePressedOver(blackgun1)){
+      //BlueImg.visible= true
+     // Sb.visible= true
+      blackgun1.visible= false
+     
+      BlueImg.visible=false;
+       Geor.visible= true
+      Black.visible=true
+     // BlackD.visible=false
+      //WhiteD.visible=false
+
+      
+      whitegun1.visible= false
+      whitegun2.visible = false
+      blackgun2.visible = false
+      white.visible= false
+      Black.visible = false
+      Blackwithdp.visible=true
+      Black.y= 400
+    }
+
+    if(mousePressedOver(whitegun1)){
+      //BlueImg.visible= true
+     // Sb.visible= true
+      blackgun1.visible= false
+      whitegun1.visible= false
+      whitegun2.visible = false
+      blackgun2.visible = false
+     
+      BlueImg.visible=false;
+       Geor.visible= true
+      //Black.visible=false
+
+     // BlackD.visible=false
+      //WhiteD.visible=false
+
+      
+      
+      Whitewithdp.visible= true
+
+      //Black.visible=false
+      white.y= 480
+      white.x= 500
+      
+
+      
+
+  }
+  if(keyDown("s")){
+
+    Whitecdp.visible = true
+    Whitewithdp.visible = false
+
+
+}
+
+if(keyDown("w")){
+
+  Whitecdp.visible = false
+  Whitewithdp.visible = true
+
+
+}
+if(keyDown("DOWN_ARROW")){
+
+  Whitecdp.visible = false
+  Whitewithdp.visible = false
+  Blackcdp.visible= true
+  Blackwithdp.visible= false
+
+
+}
+if(keyDown("UP_ARROW")){
+
+  Whitecdp.visible = false
+  Whitewithdp.visible = false
+  Blackcdp.visible=false
+  Blackwithdp.visible=true
+
+
+}
+
+
+
+   
+
+
+
+  drawSprites();
+}
